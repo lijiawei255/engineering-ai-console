@@ -1,0 +1,87 @@
+:root {
+  --message-list-max-width: 860px;
+  --message-list-padding-horizontal: 44px;
+}
+
+body[data-content-width='wide'] {
+  --message-list-max-width: 1120px;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --message-list-max-width: 100%;
+    --message-list-padding-horizontal: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --message-list-padding-horizontal: 14px;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  word-break: break-word;
+  font-family: var(--dsw-font-family);
+  font-size: var(--ds-font-size-m);
+  line-height: 1.55;
+  color: var(--dsw-alias-label-primary);
+  background-color: var(--dsw-alias-bg-base);
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--console-scroll) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: var(--console-scroll);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--console-scroll-hover);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: var(--dsw-alias-brand-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--so-blue);
+  outline-offset: 2px;
+}

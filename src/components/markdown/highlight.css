@@ -1,0 +1,515 @@
+/*
+ * Prism 代码高亮 — 全部色值映射到 Ethan Schoonover 的 Solarized 标准色板。
+ *
+ * 浅色模式：代码块底 #eee8d5（暖米灰），文字 #586e75 / #657b83，绝不使用纯黑纯白。
+ * 深色模式：代码块底 #073642，文字 #93a1a1 / #839496。
+ * 强调色在两种模式下对称复用 Solarized 辅色：
+ * blue #268bd2 · cyan #2aa198 · green #859900 · yellow #b58900
+ * orange #cb4b16 · red #dc322f · violet #6c71c4 · magenta #d33682
+ */
+
+.md-code-block {
+  color: var(--dsw-alias-label-secondary);
+}
+
+/* ---------- 浅色 Solarized ---------- */
+body.light .md-code-block {
+  .token.comment,
+  .token.prolog,
+  .token.cdata {
+    color: #657b83;
+    font-style: italic;
+  }
+
+  .token.doctype,
+  .token.punctuation,
+  .token.entity {
+    color: #586e75;
+  }
+
+  .token.attr-name,
+  .token.boolean,
+  .token.constant,
+  .token.number,
+  .token.atrule,
+  .token.important,
+  .token.deleted {
+    color: #b58900;
+  }
+
+  .token.keyword,
+  .token.keyword-array,
+  .token.builtin,
+  .token.pseudo-class,
+  .token.pseudo-element {
+    color: #859900;
+  }
+
+  .token.operator,
+  .token.unit,
+  .token.combinator,
+  .token.special-attr > .token.attr-value > .token.value.css {
+    color: #586e75;
+  }
+
+  .token.property,
+  .token.property-access,
+  .token.tag,
+  .token.tag .token.punctuation,
+  .token.symbol,
+  .token.class-name,
+  .token.key,
+  .token.parameter,
+  .token.keyword-this,
+  .token.this {
+    color: #268bd2;
+  }
+
+  .token.string,
+  .token.char,
+  .token.attr-value,
+  .token.attr-value > .token.punctuation,
+  .token.regex,
+  .token.inserted,
+  .token.url {
+    color: #2aa198;
+  }
+
+  .token.variable,
+  .token.selector .token.attribute,
+  .token.selector .token.class,
+  .token.selector .token.id,
+  .token.package,
+  .token.function {
+    color: #6c71c4;
+  }
+
+  .token.delimiter.important,
+  .token.selector .parent,
+  .token.selector,
+  .token.pseudo-class,
+  .token.pseudo-element {
+    color: #d33682;
+  }
+
+  .token.deleted {
+    color: #dc322f;
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic,
+  .token.comment {
+    font-style: italic;
+  }
+
+  .token.entity {
+    cursor: help;
+  }
+
+  .token.namespace {
+    opacity: 0.8;
+  }
+
+  .token.token.tab:not(:empty):before,
+  .token.token.cr:before,
+  .token.token.lf:before,
+  .token.token.space:before {
+    color: rgba(88, 110, 117, 0.45);
+  }
+
+  .language-markdown .token.title,
+  .language-markdown .token.title .token.punctuation {
+    color: #268bd2;
+    font-weight: bold;
+  }
+
+  .language-markdown .token.blockquote.punctuation,
+  .language-markdown .token.hr.punctuation {
+    color: #657b83;
+    font-style: italic;
+  }
+
+  .language-markdown .token.code,
+  .language-markdown .token.code-snippet {
+    color: #2aa198;
+  }
+
+  .language-markdown .token.url > .token.content {
+    color: #268bd2;
+  }
+
+  .language-markdown .token.url-link {
+    color: #b58900;
+  }
+
+  .language-markdown .token.list.punctuation,
+  .language-markdown .token.strike .token.content,
+  .language-markdown .token.strike .token.punctuation {
+    color: #dc322f;
+  }
+
+  .language-markdown .token.bold .token.content {
+    color: #b58900;
+  }
+
+  .language-markdown .token.italic .token.content {
+    color: #859900;
+  }
+
+  .language-markdown .token.table-header {
+    color: #586e75;
+  }
+
+  .language-json .token.operator,
+  .language-json .token.null.keyword {
+    color: #586e75;
+  }
+
+  .language-scss .token.variable {
+    color: #cb4b16;
+  }
+
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > button {
+    color: #fdf6e3;
+    background: #268bd2;
+  }
+
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:focus {
+    color: #fdf6e3;
+    background: #2aa198;
+    text-decoration: none;
+  }
+
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
+    color: #fdf6e3;
+    background: #93a1a1;
+  }
+
+  .line-highlight.line-highlight {
+    background: rgba(38, 139, 210, 0.14);
+    background: linear-gradient(to right, rgba(38, 139, 210, 0.14) 70%, rgba(38, 139, 210, 0.1));
+  }
+
+  .line-highlight.line-highlight:before,
+  .line-highlight.line-highlight[data-end]:after {
+    background-color: #93a1a1;
+    color: #fdf6e3;
+    box-shadow: 0 1px #eee8d5;
+  }
+
+  pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
+    background-color: rgba(88, 110, 117, 0.12);
+  }
+
+  .line-numbers.line-numbers .line-numbers-rows {
+    border-right: 1px solid rgba(88, 110, 117, 0.24);
+    background: rgba(238, 232, 213, 0.6);
+  }
+
+  .line-numbers .line-numbers-rows > span:before {
+    color: rgba(88, 110, 117, 0.7);
+  }
+
+  .command-line .command-line-prompt {
+    border-right: 1px solid rgba(88, 110, 117, 0.24);
+  }
+
+  .command-line .command-line-prompt > span:before {
+    color: rgba(88, 110, 117, 0.7);
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-1,
+  .rainbow-braces .token.token.punctuation.brace-level-5,
+  .rainbow-braces .token.token.punctuation.brace-level-9 {
+    color: #b58900;
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-2,
+  .rainbow-braces .token.token.punctuation.brace-level-6,
+  .rainbow-braces .token.token.punctuation.brace-level-10 {
+    color: #6c71c4;
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-3,
+  .rainbow-braces .token.token.punctuation.brace-level-7,
+  .rainbow-braces .token.token.punctuation.brace-level-11 {
+    color: #268bd2;
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-4,
+  .rainbow-braces .token.token.punctuation.brace-level-8,
+  .rainbow-braces .token.token.punctuation.brace-level-12 {
+    color: #2aa198;
+  }
+
+  pre.diff-highlight > code .token.token.deleted:not(.prefix),
+  pre > code.diff-highlight .token.token.deleted:not(.prefix) {
+    background-color: rgba(220, 50, 47, 0.12);
+  }
+
+  pre.diff-highlight > code .token.token.inserted:not(.prefix),
+  pre > code.diff-highlight .token.token.inserted:not(.prefix) {
+    background-color: rgba(133, 153, 0, 0.14);
+  }
+}
+
+/* ---------- 深色 Solarized ---------- */
+body[data-ds-dark-theme] .md-code-block {
+  .token.comment,
+  .token.prolog,
+  .token.cdata {
+    color: #586e75;
+    font-style: italic;
+  }
+
+  .token.doctype,
+  .token.punctuation,
+  .token.entity {
+    color: #839496;
+  }
+
+  .token.attr-name,
+  .token.boolean,
+  .token.constant,
+  .token.number,
+  .token.atrule,
+  .token.important,
+  .token.deleted {
+    color: #b58900;
+  }
+
+  .token.keyword,
+  .token.keyword-array,
+  .token.builtin,
+  .token.pseudo-class,
+  .token.pseudo-element {
+    color: #859900;
+  }
+
+  .token.operator,
+  .token.unit,
+  .token.combinator,
+  .token.special-attr > .token.attr-value > .token.value.css {
+    color: #839496;
+  }
+
+  .token.property,
+  .token.property-access,
+  .token.tag,
+  .token.tag .token.punctuation,
+  .token.symbol,
+  .token.class-name,
+  .token.key,
+  .token.parameter,
+  .token.keyword-this,
+  .token.this {
+    color: #268bd2;
+  }
+
+  .token.string,
+  .token.char,
+  .token.attr-value,
+  .token.attr-value > .token.punctuation,
+  .token.regex,
+  .token.inserted,
+  .token.url {
+    color: #2aa198;
+  }
+
+  .token.variable,
+  .token.selector .token.attribute,
+  .token.selector .token.class,
+  .token.selector .token.id,
+  .token.package,
+  .token.function {
+    color: #6c71c4;
+  }
+
+  .token.delimiter.important,
+  .token.selector .parent,
+  .token.selector,
+  .token.pseudo-class,
+  .token.pseudo-element {
+    color: #d33682;
+  }
+
+  .token.deleted {
+    color: #dc322f;
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic,
+  .token.comment {
+    font-style: italic;
+  }
+
+  .token.entity {
+    cursor: help;
+  }
+
+  .token.namespace {
+    opacity: 0.8;
+  }
+
+  .token.token.tab:not(:empty):before,
+  .token.token.cr:before,
+  .token.token.lf:before,
+  .token.token.space:before {
+    color: rgba(147, 161, 161, 0.45);
+  }
+
+  .language-markdown .token.title,
+  .language-markdown .token.title .token.punctuation {
+    color: #268bd2;
+    font-weight: bold;
+  }
+
+  .language-markdown .token.blockquote.punctuation,
+  .language-markdown .token.hr.punctuation {
+    color: #586e75;
+    font-style: italic;
+  }
+
+  .language-markdown .token.code,
+  .language-markdown .token.code-snippet {
+    color: #2aa198;
+  }
+
+  .language-markdown .token.url > .token.content {
+    color: #268bd2;
+  }
+
+  .language-markdown .token.url-link {
+    color: #b58900;
+  }
+
+  .language-markdown .token.list.punctuation,
+  .language-markdown .token.strike .token.content,
+  .language-markdown .token.strike .token.punctuation {
+    color: #dc322f;
+  }
+
+  .language-markdown .token.bold .token.content {
+    color: #b58900;
+  }
+
+  .language-markdown .token.italic .token.content {
+    color: #859900;
+  }
+
+  .language-markdown .token.table-header {
+    color: #93a1a1;
+  }
+
+  .language-json .token.operator,
+  .language-json .token.null.keyword {
+    color: #839496;
+  }
+
+  .language-scss .token.variable {
+    color: #cb4b16;
+  }
+
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > button {
+    color: #002b36;
+    background: #268bd2;
+  }
+
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:focus {
+    color: #002b36;
+    background: #2aa198;
+    text-decoration: none;
+  }
+
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover,
+  div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
+    color: #002b36;
+    background: #93a1a1;
+  }
+
+  .line-highlight.line-highlight {
+    background: rgba(38, 139, 210, 0.16);
+    background: linear-gradient(to right, rgba(38, 139, 210, 0.16) 70%, rgba(38, 139, 210, 0.1));
+  }
+
+  .line-highlight.line-highlight:before,
+  .line-highlight.line-highlight[data-end]:after {
+    background-color: #586e75;
+    color: #fdf6e3;
+    box-shadow: 0 1px #073642;
+  }
+
+  pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
+    background-color: rgba(147, 161, 161, 0.14);
+  }
+
+  .line-numbers.line-numbers .line-numbers-rows {
+    border-right: 1px solid rgba(147, 161, 161, 0.28);
+    background: rgba(0, 43, 54, 0.5);
+  }
+
+  .line-numbers .line-numbers-rows > span:before {
+    color: rgba(147, 161, 161, 0.7);
+  }
+
+  .command-line .command-line-prompt {
+    border-right: 1px solid rgba(147, 161, 161, 0.28);
+  }
+
+  .command-line .command-line-prompt > span:before {
+    color: rgba(147, 161, 161, 0.7);
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-1,
+  .rainbow-braces .token.token.punctuation.brace-level-5,
+  .rainbow-braces .token.token.punctuation.brace-level-9 {
+    color: #b58900;
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-2,
+  .rainbow-braces .token.token.punctuation.brace-level-6,
+  .rainbow-braces .token.token.punctuation.brace-level-10 {
+    color: #6c71c4;
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-3,
+  .rainbow-braces .token.token.punctuation.brace-level-7,
+  .rainbow-braces .token.token.punctuation.brace-level-11 {
+    color: #268bd2;
+  }
+
+  .rainbow-braces .token.token.punctuation.brace-level-4,
+  .rainbow-braces .token.token.punctuation.brace-level-8,
+  .rainbow-braces .token.token.punctuation.brace-level-12 {
+    color: #2aa198;
+  }
+
+  pre.diff-highlight > code .token.token.deleted:not(.prefix),
+  pre > code.diff-highlight .token.token.deleted:not(.prefix) {
+    background-color: rgba(220, 50, 47, 0.16);
+  }
+
+  pre.diff-highlight > code .token.token.inserted:not(.prefix),
+  pre > code.diff-highlight .token.token.inserted:not(.prefix) {
+    background-color: rgba(133, 153, 0, 0.16);
+  }
+}

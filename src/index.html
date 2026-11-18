@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#fdf6e3" />
+    <meta name="description" content="Engineering AI Console" />
+    <!--
+      file:// 与本地服务两种打开方式共用同一份 CSP：不允许任何自动外链加载，
+      但 connect-src 保留 http(s)，用户主动发起的上游 API / 检索请求不受影响。
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; connect-src 'self' http: https:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23073642'/%3E%3Ctext x='16' y='22' font-size='14' font-family='sans-serif' fill='%232aa198' text-anchor='middle'%3EEA%3C/text%3E%3C/svg%3E"
+    />
+    <title>Engineering AI Console</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

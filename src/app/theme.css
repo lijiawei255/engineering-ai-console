@@ -1,0 +1,259 @@
+/*
+ * Solarized Light / Dark 全量色板 + 多档字号缩放。
+ *
+ * 色值严格来自 Ethan Schoonover 的 Solarized 标准：
+ * base03 #002b36 / base02 #073642 / base01 #586e75 / base00 #657b83
+ * base0 #839496 / base1 #93a1a1 / base2 #eee8d5 / base3 #fdf6e3
+ * yellow #b58900 / orange #cb4b16 / red #dc322f / magenta #d33682
+ * violet #6c71c4 / blue #268bd2 / cyan #2aa198 / green #859900
+ *
+ * 所有字号统一乘 --console-font-scale（0.9 / 1 / 1.12 / 1.25，由 JS 写入 :root），
+ * 不使用 zoom，避免破坏浮层定位。
+ */
+
+:root {
+  --console-font-scale: 1;
+  --dsw-font-family:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
+    'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Noto Sans SC', 'Noto Sans Cyrillic', sans-serif;
+  font-variant-ligatures: no-contextual;
+
+  --so-base03: #002b36;
+  --so-base02: #073642;
+  --so-base01: #586e75;
+  --so-base00: #657b83;
+  --so-base0: #839496;
+  --so-base1: #93a1a1;
+  --so-base2: #eee8d5;
+  --so-base3: #fdf6e3;
+  --so-yellow: #b58900;
+  --so-orange: #cb4b16;
+  --so-red: #dc322f;
+  --so-magenta: #d33682;
+  --so-violet: #6c71c4;
+  --so-blue: #268bd2;
+  --so-cyan: #2aa198;
+  --so-green: #859900;
+}
+
+body {
+  --ds-control-height-xl: calc(44px * var(--console-font-scale));
+  --ds-control-height-l: calc(40px * var(--console-font-scale));
+  --ds-control-height-m: calc(36px * var(--console-font-scale));
+  --ds-control-height-s: calc(32px * var(--console-font-scale));
+  --ds-control-height-xs: calc(28px * var(--console-font-scale));
+
+  --ds-font-size-m: calc(14px * var(--console-font-scale));
+
+  --ds-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ds-font-family-code:
+    'Cascadia Mono', 'JetBrains Mono', Menlo, Monaco, Consolas, 'Ubuntu Mono', 'DejaVu Sans Mono',
+    'Liberation Mono', 'Fira Code', 'Roboto Mono', 'Courier New', monospace, system-ui;
+  --ds-transition-duration: 0.2s;
+  --ds-transition-duration-slow: 0.3s;
+
+  --dsw-font-markdown-h1: 700 calc(24px * var(--console-font-scale)) /
+    calc(34px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-h2: 700 calc(22px * var(--console-font-scale)) /
+    calc(32px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-h3: 700 calc(20px * var(--console-font-scale)) /
+    calc(30px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-h4: 600 calc(16px * var(--console-font-scale)) /
+    calc(28px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-base: calc(16px * var(--console-font-scale)) /
+    calc(28px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-base-strong: 600 calc(16px * var(--console-font-scale)) /
+    calc(28px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-table: calc(15px * var(--console-font-scale)) /
+    calc(25px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-table-head: 500 calc(15px * var(--console-font-scale)) /
+    calc(25px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-small: calc(14px * var(--console-font-scale)) /
+    calc(24px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-small-strong: 600 calc(14px * var(--console-font-scale)) /
+    calc(24px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-markdown-code: calc(14px * var(--console-font-scale)) /
+    calc(22px * var(--console-font-scale)) var(--ds-font-family-code);
+  --dsw-font-markdown-code-block: calc(13px * var(--console-font-scale)) /
+    calc(22px * var(--console-font-scale)) var(--ds-font-family-code);
+  --dsw-font-s-strong-14: 500 calc(14px * var(--console-font-scale)) /
+    calc(22px * var(--console-font-scale)) var(--dsw-font-family);
+  --dsw-font-xs-13: calc(13px * var(--console-font-scale)) /
+    calc(20px * var(--console-font-scale)) var(--dsw-font-family);
+  --console-font-xs: calc(12px * var(--console-font-scale));
+  --console-font-s: calc(13px * var(--console-font-scale));
+  --console-font-m: calc(14px * var(--console-font-scale));
+  --console-font-l: calc(16px * var(--console-font-scale));
+}
+
+/* ---------- Solarized Light ---------- */
+body,
+body.light {
+  --dsw-alias-bg-base: var(--so-base3);
+  --dsw-alias-bg-layer-2: var(--so-base3);
+  --dsw-alias-bg-layer-3: var(--so-base2);
+  --dsw-alias-bg-skeleton: rgba(0, 43, 54, 0.05);
+  --dsw-alias-border-inverted: transparent;
+  --dsw-alias-border-l1: rgba(88, 110, 117, 0.14);
+  --dsw-alias-border-l2: rgba(88, 110, 117, 0.24);
+  --dsw-alias-border-l3: rgba(88, 110, 117, 0.34);
+  --dsw-alias-brand-primary: var(--so-blue);
+  --dsw-alias-brand-primary-invert: var(--so-base1);
+  --dsw-alias-brand-text: #268bd2;
+  --dsw-alias-button-contrast-fill: var(--so-base01);
+  --dsw-alias-button-elevated-fill: var(--so-base3);
+  --dsw-alias-button-ghost-active-border: rgba(38, 139, 210, 0.4);
+  --dsw-alias-button-ghost-active-fill: rgba(38, 139, 210, 0.12);
+  --dsw-alias-button-ghost-active-hover: rgba(38, 139, 210, 0.18);
+  --dsw-alias-button-primary-fill: var(--so-blue);
+  --dsw-alias-button-primary-hover: #2aa198;
+  --dsw-alias-interactive-bg-active: rgba(88, 110, 117, 0.14);
+  --dsw-alias-interactive-bg-hover: rgba(88, 110, 117, 0.08);
+  --dsw-alias-interactive-bg-hover-accent: rgba(88, 110, 117, 0.2);
+  --dsw-alias-interactive-bg-hover-danger: rgba(220, 50, 47, 0.08);
+  --dsw-alias-label-caption: var(--so-base0);
+  --dsw-alias-label-dimmed: rgba(88, 110, 117, 0.4);
+  --dsw-alias-label-primary: var(--so-base01);
+  --dsw-alias-label-primary-foreground: var(--so-base3);
+  --dsw-alias-label-primary-inverted: var(--so-base3);
+  --dsw-alias-label-secondary: var(--so-base00);
+  --dsw-alias-label-tertiary: var(--so-base0);
+  --dsw-alias-markdown-citation: var(--so-base2);
+  --dsw-alias-markdown-code-block: var(--so-base2);
+  --dsw-alias-markdown-code-block-banner: #eee8d5;
+  --dsw-alias-markdown-inline-code: var(--so-base2);
+  --dsw-alias-markdown-placeholder: var(--so-base2);
+  --dsw-alias-markdown-tag: var(--so-base2);
+  --dsw-alias-state-error-primary: var(--so-red);
+  --dsw-alias-state-error-secondary: var(--so-orange);
+  --dsw-alias-toast-bg: var(--so-base02);
+  --dsw-alias-tooltip-bg: var(--so-base02);
+  --dsw-specific-bubble: var(--so-base2);
+  --dsw-specific-input-major: var(--so-base3);
+  --dsw-specific-login-input: var(--so-base3);
+  --dsw-specific-menu: var(--so-base2);
+  --dsw-specific-selector: var(--so-base2);
+  --dsw-specific-sidebar-fill: #eee8d5;
+  --dsw-specific-sidebar-nav-item-active-accent: rgba(38, 139, 210, 0.14);
+  --dsw-specific-sidebar-nav-item-hover: rgba(88, 110, 117, 0.08);
+  --dsw-shadow-lv3: 0 0 1px 0 rgba(88, 110, 117, 0.2), 0 12px 32px 0 rgba(0, 43, 54, 0.1);
+
+  --console-text-strong: var(--so-base01);
+  --console-text-body: var(--so-base00);
+  --console-text-muted: var(--so-base0);
+  --console-accent-soft: rgba(38, 139, 210, 0.1);
+  --console-code-bg: var(--so-base2);
+  --console-code-inline-bg: rgba(238, 232, 213, 0.9);
+  --console-user-bubble-bg: rgba(238, 232, 213, 0.85);
+  --console-input-bg: var(--so-base3);
+  --console-panel-bg: var(--so-base3);
+  --console-scroll: rgba(88, 110, 117, 0.28);
+  --console-scroll-hover: rgba(88, 110, 117, 0.45);
+  --console-selection: rgba(38, 139, 210, 0.24);
+  --console-overlay-bg: rgba(0, 43, 54, 0.42);
+  color-scheme: light;
+}
+
+/* ---------- Solarized Dark ---------- */
+body[data-ds-dark-theme],
+body.dark {
+  --dsw-alias-bg-base: var(--so-base03);
+  --dsw-alias-bg-layer-2: var(--so-base02);
+  --dsw-alias-bg-layer-3: var(--so-base02);
+  --dsw-alias-bg-skeleton: rgba(147, 161, 161, 0.08);
+  --dsw-alias-border-inverted: rgba(147, 161, 161, 0.08);
+  --dsw-alias-border-l1: rgba(147, 161, 161, 0.14);
+  --dsw-alias-border-l2: rgba(147, 161, 161, 0.24);
+  --dsw-alias-border-l3: rgba(147, 161, 161, 0.34);
+  --dsw-alias-brand-primary: var(--so-blue);
+  --dsw-alias-brand-primary-invert: var(--so-base1);
+  --dsw-alias-brand-text: #268bd2;
+  --dsw-alias-button-contrast-fill: var(--so-base1);
+  --dsw-alias-button-elevated-fill: var(--so-base02);
+  --dsw-alias-button-ghost-active-border: rgba(38, 139, 210, 0.55);
+  --dsw-alias-button-ghost-active-fill: rgba(38, 139, 210, 0.2);
+  --dsw-alias-button-ghost-active-hover: rgba(38, 139, 210, 0.28);
+  --dsw-alias-button-primary-fill: var(--so-blue);
+  --dsw-alias-button-primary-hover: #2aa198;
+  --dsw-alias-interactive-bg-active: rgba(147, 161, 161, 0.16);
+  --dsw-alias-interactive-bg-hover: rgba(147, 161, 161, 0.1);
+  --dsw-alias-interactive-bg-hover-accent: rgba(147, 161, 161, 0.22);
+  --dsw-alias-interactive-bg-hover-danger: rgba(220, 50, 47, 0.16);
+  --dsw-alias-label-caption: var(--so-base00);
+  --dsw-alias-label-dimmed: rgba(131, 148, 150, 0.4);
+  --dsw-alias-label-primary: var(--so-base1);
+  --dsw-alias-label-primary-foreground: var(--so-base03);
+  --dsw-alias-label-primary-inverted: var(--so-base03);
+  --dsw-alias-label-secondary: var(--so-base0);
+  --dsw-alias-label-tertiary: var(--so-base00);
+  --dsw-alias-markdown-citation: var(--so-base02);
+  --dsw-alias-markdown-code-block: var(--so-base02);
+  --dsw-alias-markdown-code-block-banner: #073642;
+  --dsw-alias-markdown-inline-code: var(--so-base02);
+  --dsw-alias-markdown-placeholder: var(--so-base02);
+  --dsw-alias-markdown-tag: var(--so-base02);
+  --dsw-alias-state-error-primary: var(--so-red);
+  --dsw-alias-state-error-secondary: var(--so-orange);
+  --dsw-alias-toast-bg: #073642;
+  --dsw-alias-tooltip-bg: #073642;
+  --dsw-specific-bubble: var(--so-base02);
+  --dsw-specific-input-major: var(--so-base02);
+  --dsw-specific-login-input: var(--so-base02);
+  --dsw-specific-menu: #073642;
+  --dsw-specific-selector: var(--so-base02);
+  --dsw-specific-sidebar-fill: #002b36;
+  --dsw-specific-sidebar-nav-item-active-accent: rgba(38, 139, 210, 0.22);
+  --dsw-specific-sidebar-nav-item-hover: rgba(147, 161, 161, 0.1);
+  --dsw-shadow-lv3: 0 0 1px 0 rgba(0, 43, 54, 0.55), 0 12px 32px 0 rgba(0, 43, 54, 0.5);
+
+  --console-text-strong: var(--so-base1);
+  --console-text-body: var(--so-base0);
+  --console-text-muted: var(--so-base00);
+  --console-accent-soft: rgba(38, 139, 210, 0.18);
+  --console-code-bg: var(--so-base02);
+  --console-code-inline-bg: rgba(7, 54, 66, 0.9);
+  --console-user-bubble-bg: rgba(7, 54, 66, 0.9);
+  --console-input-bg: var(--so-base02);
+  --console-panel-bg: var(--so-base02);
+  --console-scroll: rgba(147, 161, 161, 0.3);
+  --console-scroll-hover: rgba(147, 161, 161, 0.5);
+  --console-selection: rgba(38, 139, 210, 0.35);
+  --console-overlay-bg: rgba(0, 43, 54, 0.72);
+  color-scheme: dark;
+}
+
+body ::selection {
+  background: var(--console-selection);
+}
+
+body.change-theme *,
+body.change-theme *::before,
+body.change-theme *::after {
+  transition: none !important;
+}
+
+/* 防闪烁稳态：关闭所有循环脉冲、跳动圆点与扫光动画 */
+body[data-reduce-flicker='true'] *,
+body[data-reduce-flicker='true'] *::before,
+body[data-reduce-flicker='true'] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  animation-delay: 0ms !important;
+  transition-duration: 0ms !important;
+}
+
+body[data-reduce-flicker='true'] .console-live-dot {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+  }
+}

@@ -1,0 +1,30 @@
+.text {
+  margin: 0 0 10px;
+  color: var(--dsw-alias-label-secondary);
+  font-size: calc(13px * var(--console-font-scale));
+  line-height: 1.6;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0;
+  color: var(--dsw-alias-label-primary);
+  font-size: calc(13px * var(--console-font-scale));
+  line-height: 1.55;
+  cursor: pointer;
+
+  input {
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--so-blue);
+  }
+}
+
+.hint {
+  margin: 10px 0 0;
+  color: var(--dsw-alias-label-caption);
+  font-size: calc(12px * var(--console-font-scale));
+  line-height: 1.6;
+}

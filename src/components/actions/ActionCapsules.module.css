@@ -1,0 +1,54 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 0 2px 8px;
+}
+
+.capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: calc(28px * var(--console-font-scale));
+  max-width: 100%;
+  padding: 3px 10px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 999px;
+  background: var(--dsw-alias-bg-base);
+  color: var(--dsw-alias-label-secondary);
+  font-size: calc(12px * var(--console-font-scale));
+  line-height: 1.5;
+  text-align: start;
+  cursor: pointer;
+  transition:
+    background-color var(--ds-transition-duration) var(--ds-ease-in-out),
+    border-color var(--ds-transition-duration) var(--ds-ease-in-out);
+
+  svg {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    background: var(--dsw-alias-interactive-bg-hover);
+    border-color: var(--dsw-alias-border-l3);
+  }
+}
+
+.selected {
+  background: var(--console-accent-soft);
+  border-color: var(--dsw-alias-brand-primary);
+  color: var(--dsw-alias-brand-text);
+}
+
+.label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.activeHint {
+  color: var(--dsw-alias-brand-text);
+  font-size: calc(11px * var(--console-font-scale));
+}

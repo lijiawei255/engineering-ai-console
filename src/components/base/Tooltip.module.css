@@ -1,0 +1,22 @@
+.trigger {
+  display: contents;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 2000;
+  box-sizing: border-box;
+  max-width: calc(100vw - 28px);
+  padding: 4px 8px;
+  border-radius: 10px;
+  background-color: var(--dsw-alias-tooltip-bg);
+  color: var(--so-base2);
+  font-size: calc(12px * var(--console-font-scale));
+  line-height: 1.5;
+  pointer-events: none;
+
+  [data-ds-dark-theme] & {
+    color: var(--dsw-alias-label-primary);
+    box-shadow: var(--dsw-shadow-lv3);
+  }
+}

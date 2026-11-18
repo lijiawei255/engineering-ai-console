@@ -1,0 +1,39 @@
+.composer {
+  flex-shrink: 0;
+  padding: 8px var(--message-list-padding-horizontal) 14px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--dsw-alias-bg-base) 24px,
+    var(--dsw-alias-bg-base)
+  );
+}
+
+.constrain {
+  max-width: var(--message-list-max-width);
+  margin: 0 auto;
+}
+
+.footerLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-top: 6px;
+  padding: 0 2px;
+}
+
+.safety {
+  color: var(--dsw-alias-label-caption);
+  font-size: calc(11px * var(--console-font-scale));
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+.hint {
+  color: var(--dsw-alias-label-caption);
+  font-size: calc(11px * var(--console-font-scale));
+  line-height: 1.5;
+  white-space: nowrap;
+}
