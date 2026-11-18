@@ -1,0 +1,23 @@
+# Lock line endings across platforms so source archives and clones stay runnable.
+# Shell/Python/JS/TS sources are always LF; Windows batch launchers stay CRLF.
+*.sh text eol=lf
+*.py text eol=lf
+*.mjs text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.bat text eol=crlf
+# Documentation, manifests and the license must stay byte-identical to their Git
+# blobs: `git -c core.autocrlf=true archive HEAD` on Windows must not expand LF.
+LICENSE text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+# Binary font assets are never converted; the committed build tree is a release
+# artifact, so every dist/ file bypasses end-of-line conversion entirely.
+*.woff2 binary
+*.woff binary
+*.ttf binary
+dist/** -text
