@@ -1,0 +1,1 @@
+"use strict";(self.rspackChunkengineering_ai_console=self.rspackChunkengineering_ai_console||[]).push([[9261],{5820(e,n,r){r.d(n,{createArchitectureServices:()=>s.S});var s=r(3738);r(7127)}}]);
